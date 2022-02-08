@@ -1,0 +1,171 @@
+                 #WINDOWS SERVER 2012#
+
+    habilitando e criando o NIC TEAM
+     Gerenciador do Servidor
+     Servidor Local
+         Agrupamento NIC
+          Tarefas 
+            Nova Equipe
+             Dar um nome a Equipe   
+                Selecionar as placas de rede que voce quer no seu NIC TEAM (Preferencial)
+                  Alternar Independente 
+                    Dinâmico 
+                      Nenhum (Todos os adaptadores ativos)
+                         Ok
+                           Esperar enquanto as placas se sincronizal
+----------------------------------------------------------------------------------------------------                           
+
+Botão direito do mouse em cima do icone de rede
+    Abrir central de rede e compartilhamento 
+       Opção alterar as configurações do adaptador
+            Botão Direito em cima da placa do NIC TEAM que vc criou
+              Propriedades 
+           Protocolo TCP/IP versão 4 (TCP iPv4)
+               Usar o seguinte endereço IP
+                            Adicionar o IP EX: 172.16.X.20
+                                Abrir CMD (Prompt de comando)
+                                    ipconfig /all para ver se o IP foi configurado correto
+----------------------------------------------------------------------------------------------------
+
+Mudando o nome do computador 
+
+    Win+PauseBreak ou Botão direito em meu computador e propriedades
+        Configurações avançadas do sistema 
+            Nome do computador
+                Alterar 
+                    O nome do computador tem que ter SRV antes (Ex:SRVFERNANDO)
+                        Ok e reinicia o computador 
+                            Abrir CMD e digitar ipconfig /all ou hostname para ver se o nome e o IP foi alterado
+ -------------------------------------------------------------------------------------------------------------------
+ 
+ #Instalação do AD (Active Directory) Obrigatoriamente tem que ter um IP FIXO e Um NOME...
+
+Instalando o AD
+
+    Gerenciador do Servidor
+      Gerenciar 
+        Adicionar Funções e recursos 
+           Proximo  
+              Instalação baseado em função ou recurso
+                 Proximo
+                 Selecionar o seu Servidor 
+                  Proximo 
+                  #Serviço de dominio Active Directory
+                    Adicionar Recursos
+                      Proximo
+                      Proximo
+                      Proximo
+                     Instalar
+--------------------------------------------------------------------------------------------------
+                                                        
+Configurando o AD
+
+    Nas notificações ira aparecer uma caixinha com uma exclamação (Clicar nela)
+     Promover este servidor a um controlador de dominio
+       Adicionar uma nova floresta (x)
+         Nome do dominio (Qualquercoisa.local)
+            Proximo
+             !!Nivel funcional da floresta, selecionar pela versão mais velha, se tiver versão moderna como 2012 R2 pra frente, selecionar 2012 R2 pra frente
+                Servidor do sistema de nomes do dominio
+                   Adicionar uma senha 
+                   Proximo
+                   Proximo
+                    Nome NETBIOS é o nome do seu dominio, se o seu dominio se chama fernando.intra o NetBios será "fernando"
+                    Proximo
+                    Selecionar a pasta onde vao ficar o banco de dados e o log
+                    Proximo
+                    Proximo
+                    Instalar
+
+                                                                
+Instalar o serviço de DHCP
+
+    Gerenciador do Servidor
+      Gerenciar 
+      Adicionar Funções e recursos 
+      Proximo  
+      Instalação baseado em função ou recurso
+      Proximo
+      Selecionar o seu Servidor 
+        Proximo 
+         Marcar a opção (Serviço DHCP)
+           Adicionar Recursos
+              Proximo
+              Proximo
+              Proximo
+              Instalar
+
+
+Autorizando o DHCP
+    Nas Notificações irá aparecer novamente uma exclamação !!!!
+      Configuração de DHCP    
+      Proximo
+      Usar as seguintes cresenciais do usuario 
+      Confirmar
+      Fechar                          
+
+                    
+Configurando o DHCP
+    Ferramentas
+      DHCP
+       qualquercoisa.intra
+        iPv4
+        Botao direito em iPv4
+         Selecionar a opção (NOVO ESCOPO)
+          Avançar
+           Adicionar a descrição que você quiser
+             Avançar
+              Adicionar o Início do IP que irá ofertar (EX: 172.16.X.100) e o final (EX: 172.16.X.200)
+               No caso será 101 Usuários que ele ira ofertar com o DHCP
+                 Avançar
+                 Avançar
+                 Selecionar por quanto tempo voce quer manter o ip ativo na máquina (Ex: 1 Hora) Depois disso ele irá Fornecer outro
+                  Avançar
+                   Sim
+                     Avançar
+                       Adicionar Um Gateway que no caso pode ser de um Firewall que fornecerá internet 
+                         Apontar para um Gateway
+                          (EX: 172.16.3.254)
+                            Avançar
+                            Avançar
+                               Servidor WINS só para Windows mais antigo 95,98
+                               Avançar
+                               Sim
+                               Avançar
+                               Concluir 
+-----------------------------------------------------------------------------------------------------------------
+                                                                                                
+Testando se o DHCP esta funcionando
+    Ligar um computador da estação de trabalho
+      Permitir o ip automatico que voce recebe
+         Abrir o CMD
+             ipconfig /all
+     Verificar se já está começando a ofertar (EX: 172.16.3.100)
+       O "100" Indica que o serviço de DHCP já está funcionando
+       
+  -----------------------------------------------------------------------
+  
+                Criando um usuario pelo AD
+    Ferramentas
+        Usuarios e computadores do Active Directory
+            fernando.intra
+              Pasta "users"
+                    Botao direito do mouse opção "NOVO"
+                      Opção "Usuário"
+                            Adicionar Informações do usuario
+                              Edite ela do seu jeito que achar melhor
+
+  Digite o comando: nslookup "NomeDoSeuDominio" 
+    Para Saber Se o DNS está resolvendo NOME EM IP e IP EM NOME
+
+--------------------------------------------------------------------------
+
+Colocando a estação no dominio
+
+    Win+PauseBreak 
+    Renomear este computador
+     Alterar
+                Membro de dominio  
+                  (EX: fernando.intra)
+                    Adicionar o Usuário e senha do seu servidor, para permitir a configuração e entrar no dominio
+                    
