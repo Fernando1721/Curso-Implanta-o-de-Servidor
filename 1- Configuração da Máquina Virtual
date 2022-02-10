@@ -9,7 +9,7 @@
   7- Disco Rigído: Criar um novo disco rigído virtual agora;
   8- Tipo de Arquivo de Disco Rigído: TIPO VDI (VitualBox Disk Image);
   9- Dinamicamente Alocado;
-  10- Selecionar o Tamanho do Disco: RECOMENDÁVEL 40 Gb;
+  10- Selecionar o Tamanho do Disco: RECOMENDÁVEL 40 Gb do tipo TAMANHO FIXO, para ter mais desempenho;
   
     APÓS TER CRIADO CLICAR EM "CONFIGURAÇÕES";
     
