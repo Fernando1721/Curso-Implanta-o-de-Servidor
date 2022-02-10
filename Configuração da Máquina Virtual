@@ -1,0 +1,28 @@
+            #Configurações da Máquina Virtual para Windows Server 2012#
+
+  1- Abrir o Virtual Box na versão mais atualizada;
+  2- Opções Ferramentas, Depois Novo;
+  3- Dar um nome para a maquina "Ex: Windows Server 2012";
+  4- Tipo "Ex: Microsoft Windows";
+  5- Versão "Ex: Windows 2012 (64 Bits)", Opção Próximo;
+  6- Selecionar no Mínimo 1 Gb de RAM, se sua máquina puder ser 2Gb melhor Depende do seu Hardware;
+  7- Disco Rigído: Criar um novo disco rigído virtual agora;
+  8- Tipo de Arquivo de Disco Rigído: TIPO VDI (VitualBox Disk Image);
+  9- Dinamicamente Alocado;
+  10- Selecionar o Tamanho do Disco: RECOMENDÁVEL 40 Gb;
+  
+    APÓS TER CRIADO CLICAR EM "CONFIGURAÇÕES";
+    
+  11- Na aba "GERAL" não precisar mexer pode deixar o padrão (Default); OK
+  12- Na aba "SISTEMA", Placa Mãe pode deixar o padrão (Default); OK
+  13- Na aba "PROCESSADOR", Ativar mais um núcleo de processador para dar mais desempenho; OK
+  14- Na mesma aba, Habilitar o PAE/NX para dar suporte para 64 Bits; OK
+  15- Na aba "ACELERAÇÃO" pode deixar o padrão (Default); OK
+  16- Na aba "MONITOR" pode aumentar a memória de vídeo para 128 MB, "TELA REMOTA" e "GRAVAÇÃO" não precisa mexer; OK
+  17- Na aba "ARMAZENAMENTO" pode acrescentar mais HDs, caso for fazer RAID1 e RAID5 (FIVE); OK
+  18- Na aba "AÚDIO" em servidores não se usa aúdio, pode desativar...; OK
+  19- Na aba "REDE" clicar aonde está escrito "conectado a NAT" e muda para Rede Interna;
+  20- fazer esse passo acima em mais outras 2 placas. 
+  
+  
+  
