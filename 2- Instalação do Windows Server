@@ -1,0 +1,17 @@
+             #INSTALAÇÃO DO WINDOWS SERVER 2012#
+             
+  1- Abrir a VM configurada
+  2- Selecionar a ISO do Windows Server 2012 
+  3- Esperar ele abrir a tela de boot, selecionar o seu idioma;
+  4- Instalar Agora;
+  5- Obrigatóriamente Digitar uma chave válida do Windows Server 2012 / "W3GGN-FT8W3-Y4M27-J84CP-Q3VJ9";
+  6- Selecionar com qual ambiente gráfico você vai instalar (recomendével instalar com Servidor GUI)
+  por que ele tem ambiente gráfico o Server CORE é só por linha de comando; 
+  7- Aceitar os Termos de Licença
+  8- Clicar no tipo de instalação Personalizada;
+  9- selecionar o disco (HD) que você criou com o tamanho fixo;
+  10- Aguardar a instalação, não precisa clicar mais em nada só esperar que quando terminar ele irá reiniciar automaticamente;
+  11- Após ter instalado, o administrador será o padrão;
+  12- criar uma senha do seu gosto e que seja segura;
+  13- Após isso para entrar no servidor, e o CTRL da DIREITA + DELETE;
+  14- finalizado a instalação...
